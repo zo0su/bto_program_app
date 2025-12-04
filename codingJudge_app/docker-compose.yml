@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # 백엔드 서버
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+    volumes:
+      - ./backend:/app
+      - /var/run/docker.sock:/var/run/docker.sock  # Docker-in-Docker for judge engine
+    depends_on:
+      - postgres
+    networks:
+      - judge-network
+
+  # 프론트엔드 (개발용)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_SUPABASE_URL=${SUPABASE_URL}
+      - REACT_APP_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - judge-network
+
+  # PostgreSQL (선택사항 - Supabase 사용 시 불필요)
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=coder_judge
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - judge-network
+
+volumes:
+  postgres-data:
+
+networks:
+  judge-network:
+    driver: bridge
+
