@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부산교사오케스트라 제31회 정기연주회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#f4ecdb;
+    --ink-soft:#d6c6ad;
+    --gold:#dcb978;
+    --gold-deep:#c79a4c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;background:#3a1020;overflow:hidden;}
+  body{display:flex;align-items:center;justify-content:center;font-family:"Gowun Batang",serif;}
+  #fit{transform-origin:center center;}
+  #poster{
+    width:1280px;height:1795px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(135% 75% at 50% 26%, #b01c38 0%, #8B0029 42%, #641028 74%, #4a0e1e 100%);
+    color:var(--ink);
+  }
+
+  /* ---------- decorative circles ---------- */
+  .blob{position:absolute;border-radius:50%;}
+  .blob.rose{width:170px;height:170px;background:#e07080;top:78px;right:300px;opacity:.72;}
+  .blob.mauve2{width:200px;height:200px;background:#6e2040;top:120px;right:150px;opacity:.4;}
+  .blob.sage{width:150px;height:150px;background:#c4a15a;top:640px;left:120px;opacity:.45;}
+  .blob.lav{width:108px;height:108px;background:#f0c9b4;top:760px;left:70px;opacity:.7;}
+  .blob.olive{width:78px;height:78px;background:#e2c07a;top:600px;left:250px;opacity:.55;}
+
+  /* ---------- header ---------- */
+  .kicker{position:absolute;top:74px;left:96px;font-weight:600;font-size:42px;letter-spacing:-.5px;color:var(--ink);display:flex;align-items:baseline;gap:2px;white-space:nowrap;}
+  .kicker .num{color:var(--gold);font-weight:700;font-size:58px;line-height:1;margin:0 4px;}
+
+  /* ---------- title ---------- */
+  .title{position:absolute;top:216px;left:0;right:0;text-align:center;}
+  .title .lead{font-size:46px;font-weight:400;color:var(--ink);letter-spacing:-1px;}
+  .title .lead b{font-weight:700;font-size:56px;}
+  .title .main{
+    margin-top:22px;font-size:86px;font-weight:700;letter-spacing:-1px;line-height:1.06;
+    background:linear-gradient(96deg,#efd9a4 0%,#dcb978 46%,#f3e6c2 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+
+  /* ---------- composers ---------- */
+  .composers{position:absolute;top:430px;left:0;right:0;height:620px;}
+  .portrait{position:absolute;}
+  .portrait img{display:block;width:100%;height:100%;object-fit:cover;}
+  .portrait.mendel{width:392px;height:500px;left:168px;top:40px;}
+  .portrait.tchaik{width:392px;height:474px;left:706px;top:56px;}
+  .label{position:absolute;font-family:"Cormorant Garamond",serif;color:#f1e7d4;text-align:center;line-height:1.2;white-space:nowrap;}
+  .label .nm{font-size:33px;font-weight:600;letter-spacing:.5px;}
+  .label .yr{font-size:26px;font-weight:400;letter-spacing:1px;color:#cbb89c;}
+  .label.l-mendel{left:120px;top:540px;width:488px;}
+  .label.l-tchaik{left:658px;top:528px;width:488px;}
+
+  /* ---------- date / venue ---------- */
+  .info{position:absolute;top:1078px;left:0;right:0;text-align:center;z-index:5;}
+  .date{font-family:"Cormorant Garamond",serif;font-size:64px;font-weight:600;letter-spacing:0;color:var(--ink);display:inline-flex;align-items:baseline;gap:26px;justify-content:center;}
+  .date .yr{font-size:54px;font-weight:500;}
+  .date .big{color:var(--gold);font-weight:700;font-size:70px;}
+  .date .day{font-family:"Gowun Batang",serif;font-size:36px;font-weight:400;color:var(--ink-soft);}
+  .venue{margin-top:16px;font-size:50px;font-weight:700;letter-spacing:-1px;color:var(--ink);}
+  .venue-en{margin-top:8px;font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:3px;color:#c2ab8a;text-transform:uppercase;}
+
+  /* ---------- orchestra photo ---------- */
+  .orchestra{position:absolute;left:0;right:0;bottom:62px;height:476px;}
+  .orchestra img{width:100%;height:100%;object-fit:cover;object-position:center 50%;
+    -webkit-mask-image:linear-gradient(to bottom, transparent 0%, #000 4%, #000 100%);
+            mask-image:linear-gradient(to bottom, transparent 0%, #000 4%, #000 100%);
+  }
+
+  /* ---------- footer ---------- */
+  .footer{position:absolute;left:0;right:0;bottom:0;height:62px;
+    background:linear-gradient(to bottom,#5c1024,#3e0c18);border-top:1px solid rgba(220,185,120,.28);
+    display:flex;align-items:center;justify-content:center;gap:46px;
+    font-size:24px;color:#e3d4bd;}
+  .fitem{display:flex;align-items:center;gap:11px;white-space:nowrap;flex-shrink:0;}
+  .fitem .lab{font-weight:700;color:var(--gold);}
+  .fitem .div{color:rgba(220,185,120,.35);}
+  .fitem img{height:30px;width:auto;display:block;}
+  .fitem .val{font-weight:400;color:#e3d4bd;}
+</style>
+</head>
+<body>
+  <div id="fit">
+    <div id="poster">
+      <!-- decorative blobs -->
+      <div class="blob rose"></div>
+      <div class="blob mauve2"></div>
+      <div class="blob sage"></div>
+      <div class="blob olive"></div>
+      <div class="blob lav"></div>
+
+      <!-- header -->
+      <div class="kicker"><span>제</span><span class="num">31</span><span>회 정기연주회</span></div>
+
+      <!-- title -->
+      <div class="title">
+        <div class="lead"><b>부산교사오케스트라</b>와 함께 떠나는</div>
+        <div class="main">베토벤과 발트토이펠 음악여행</div>
+      </div>
+
+      <!-- composers -->
+      <div class="composers">
+        <div class="portrait mendel"><img src="assets/beethoven.png" alt="Ludwig van Beethoven"></div>
+        <div class="portrait tchaik"><img src="assets/waldteufel.png" alt="Émile Waldteufel"></div>
+        <div class="label l-mendel"><div class="nm">Ludwig van Beethoven</div><div class="yr">1770 – 1827</div></div>
+        <div class="label l-tchaik"><div class="nm">Émile Waldteufel</div><div class="yr">1837 – 1915</div></div>
+      </div>
+
+      <!-- date / venue -->
+      <div class="info">
+        <div class="date">
+          <span class="yr">2026.</span>
+          <span class="big">12.</span>
+          <span class="big">1.</span>
+          <span class="day">[화]</span>
+          <span class="big">18:30</span>
+        </div>
+        <div class="venue">을숙도문화회관 대공연장</div>
+      </div>
+
+      <!-- orchestra -->
+      <div class="orchestra"><img src="assets/orchestra.png" alt="부산교사오케스트라"></div>
+
+      <!-- footer -->
+      <div class="footer">
+        <div class="fitem"><span class="lab">주최</span><span class="div">|</span><span class="val">부산교사오케스트라</span></div>
+        <div class="fitem"><span class="lab">주관</span><span class="div">|</span><span class="val">부산광역시교육청</span></div>
+        <div class="fitem"><span class="lab">티켓</span><span class="div">|</span><span class="val">전석무료</span></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function fit(){
+    const s=Math.min(window.innerWidth/1280, window.innerHeight/1795);
+    document.getElementById('fit').style.transform='scale('+s+')';
+  }
+  window.addEventListener('resize',fit); fit();
+</script>
+</body>
+</html>

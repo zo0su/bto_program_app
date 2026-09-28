@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제31회 정기연주회 — 외지 (프로그램·지휘·협연 · 표지)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#f4ecdb;
+    --ink-soft:#d6c6ad;
+    --ink-dim:#b3a288;
+    --gold:#dcb978;
+    --gold-deep:#c79a4c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;background:#3a1020;overflow:hidden;}
+  body{display:flex;align-items:center;justify-content:center;font-family:"Gowun Batang",serif;}
+  #fit{transform-origin:center center;}
+  #spread{
+    width:2624px;height:1795px;position:relative;overflow:hidden;
+    background:radial-gradient(120% 80% at 25% 30%, #a31834 0%, #8B0029 46%, #6a1024 78%, #4c0c1c 100%);
+    color:var(--ink);
+  }
+  .fold{position:absolute;top:0;bottom:0;left:1312px;width:2px;transform:translateX(-1px);z-index:6;
+    background:linear-gradient(to bottom, transparent, rgba(220,185,120,.22) 12%, rgba(220,185,120,.22) 88%, transparent);}
+  .fold::before{content:"";position:absolute;top:0;bottom:0;left:-50px;width:100px;
+    background:radial-gradient(closest-side, rgba(0,0,0,.30), transparent);}
+
+  .blob{position:absolute;border-radius:50%;}
+  .blob.a{width:140px;height:140px;background:#e07080;opacity:.38;top:-36px;left:230px;}
+  .blob.b{width:90px;height:90px;background:#e2c07a;opacity:.36;top:92px;left:150px;}
+
+  /* LEFT panel: 프로그램 + 지휘 + 협연 */
+  .panel{position:absolute;top:0;left:0;height:1795px;width:1312px;padding:74px 92px 60px;display:flex;flex-direction:column;}
+
+  .phead{display:flex;align-items:baseline;gap:20px;flex-wrap:nowrap;white-space:nowrap;}
+  .phead .ko{font-size:44px;font-weight:700;color:var(--gold);letter-spacing:1px;white-space:nowrap;flex-shrink:0;}
+  .phead .en{font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:5px;color:var(--ink-dim);text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+  .rule{height:1px;background:linear-gradient(to right, var(--gold-deep), rgba(199,154,76,.12));margin:14px 0 0;}
+
+  .section{display:flex;flex-direction:column;}
+  .section + .section{margin-top:30px;padding-top:30px;border-top:1px solid rgba(220,185,120,.14);}
+
+  /* program */
+  .prog{margin-top:26px;}
+  .ppart{margin-bottom:24px;}
+  .ppart:last-child{margin-bottom:0;}
+  .ppart .tag{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+  .ppart .tag .num{font-size:27px;font-weight:700;color:var(--gold);letter-spacing:1px;white-space:nowrap;}
+  .ppart .tag .en{font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:4px;color:var(--ink-dim);text-transform:uppercase;white-space:nowrap;}
+  .ppart .tag::after{content:"";flex:1;height:1px;background:rgba(220,185,120,.18);}
+  .work .composer{font-family:"Cormorant Garamond",serif;font-size:37px;font-weight:600;color:var(--ink);letter-spacing:.5px;}
+  .work .titlerow{margin-top:7px;line-height:1.38;}
+  .work .title{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:29px;color:var(--ink-soft);}
+  .work .ko{font-size:28px;color:var(--gold);letter-spacing:.5px;}
+  .work .ko::before{content:" · ";color:rgba(220,185,120,.5);}
+  .work .mvts{list-style:none;margin-top:15px;padding-left:2px;display:grid;grid-template-columns:1fr 1fr;gap:9px 48px;max-width:760px;}
+  .work .mvts li{font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--ink-soft);line-height:1.4;position:relative;padding-left:52px;white-space:nowrap;}
+  .work .mvts li .mi{position:absolute;left:2px;color:var(--gold);}
+
+  .intermission{display:flex;align-items:center;justify-content:center;gap:18px;margin:22px 0;color:var(--ink-dim);
+    font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:5px;text-transform:uppercase;}
+  .intermission::before,.intermission::after{content:"";width:54px;height:1px;background:rgba(220,185,120,.28);}
+
+  /* conductor / soloist */
+  .biobody{display:flex;gap:32px;align-items:flex-start;}
+  .figure{width:196px;flex-shrink:0;margin:8px 0 6px;}
+  .figure .pf{width:196px;height:248px;object-fit:cover;object-position:center top;display:block;
+    border:1px solid rgba(220,185,120,.42);box-shadow:0 12px 30px rgba(0,0,0,.36);}
+  .figure .pf.blank{display:flex;align-items:center;justify-content:center;text-align:center;
+    border:1px dashed rgba(220,185,120,.5);background:rgba(220,185,120,.05);box-shadow:none;
+    color:var(--ink-dim);font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:3px;}
+  .figure .cap{margin-top:12px;text-align:center;line-height:1.3;}
+  .figure .cap .role{font-family:"Cormorant Garamond",serif;font-size:17px;letter-spacing:3px;color:var(--ink-dim);text-transform:uppercase;}
+  .figure .cap .nm{font-size:26px;font-weight:700;color:var(--ink);letter-spacing:.5px;}
+  .bio{flex:1;min-width:0;}
+  .bio ul{list-style:none;margin-top:6px;}
+  .bio li{font-size:21px;line-height:1.62;color:var(--ink-soft);padding-left:22px;position:relative;text-wrap:pretty;word-break:keep-all;margin-bottom:6px;}
+  .bio li::before{content:"·";position:absolute;left:5px;color:var(--gold);}
+  .bio .tba{font-size:22px;color:var(--ink-soft);line-height:1.7;}
+  .bio .tba .em{color:var(--ink-dim);font-style:italic;display:block;margin-top:8px;font-size:19px;}
+
+  /* RIGHT panel: cover (inlined, scoped under .cv) */
+  .cv{position:absolute;top:0;left:1312px;width:1312px;height:1795px;overflow:hidden;
+    background:radial-gradient(135% 75% at 50% 26%, #b01c38 0%, #8B0029 42%, #641028 74%, #4a0e1e 100%);color:var(--ink);}
+  .cv .blob{position:absolute;border-radius:50%;}
+  .cv .blob.rose{width:170px;height:170px;background:#e07080;top:78px;right:300px;opacity:.72;}
+  .cv .blob.mauve2{width:200px;height:200px;background:#6e2040;top:120px;right:150px;opacity:.4;}
+  .cv .blob.sage{width:150px;height:150px;background:#c4a15a;top:640px;left:120px;opacity:.45;}
+  .cv .blob.lav{width:108px;height:108px;background:#f0c9b4;top:760px;left:70px;opacity:.7;}
+  .cv .blob.olive{width:78px;height:78px;background:#e2c07a;top:600px;left:250px;opacity:.55;}
+  .cv .kicker{position:absolute;top:74px;left:96px;font-weight:600;font-size:42px;letter-spacing:-.5px;color:var(--ink);display:flex;align-items:baseline;gap:2px;white-space:nowrap;}
+  .cv .kicker .num{color:var(--gold);font-weight:700;font-size:58px;line-height:1;margin:0 4px;}
+  .cv .title{position:absolute;top:216px;left:0;right:0;text-align:center;}
+  .cv .title .lead{font-size:46px;font-weight:400;color:var(--ink);letter-spacing:-1px;}
+  .cv .title .lead b{font-weight:700;font-size:56px;}
+  .cv .title .main{margin-top:22px;font-size:86px;font-weight:700;letter-spacing:-1px;line-height:1.06;
+    background:linear-gradient(96deg,#efd9a4 0%,#dcb978 46%,#f3e6c2 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .cv .composers{position:absolute;top:430px;left:0;right:0;height:620px;}
+  .cv .portrait{position:absolute;}
+  .cv .portrait img{display:block;width:100%;height:100%;object-fit:cover;}
+  .cv .portrait.mendel{width:392px;height:500px;left:186px;top:40px;}
+  .cv .portrait.tchaik{width:392px;height:474px;left:724px;top:56px;}
+  .cv .label{position:absolute;font-family:"Cormorant Garamond",serif;color:#f1e7d4;text-align:center;line-height:1.2;white-space:nowrap;}
+  .cv .label .nm{font-size:33px;font-weight:600;letter-spacing:.5px;}
+  .cv .label .yr{font-size:26px;font-weight:400;letter-spacing:1px;color:#cbb89c;}
+  .cv .label.l-mendel{left:138px;top:540px;width:488px;}
+  .cv .label.l-tchaik{left:676px;top:528px;width:488px;}
+  .cv .info{position:absolute;top:1078px;left:0;right:0;text-align:center;z-index:5;}
+  .cv .date{font-family:"Cormorant Garamond",serif;font-size:64px;font-weight:600;letter-spacing:0;color:var(--ink);display:inline-flex;align-items:baseline;gap:26px;justify-content:center;}
+  .cv .date .yr{font-size:54px;font-weight:500;}
+  .cv .date .big{color:var(--gold);font-weight:700;font-size:70px;}
+  .cv .date .day{font-family:"Gowun Batang",serif;font-size:36px;font-weight:400;color:var(--ink-soft);}
+  .cv .venue{margin-top:16px;font-size:50px;font-weight:700;letter-spacing:-1px;color:var(--ink);}
+  .cv .orchestra{position:absolute;left:0;right:0;bottom:92px;height:448px;}
+  .cv .orchestra img{width:100%;height:100%;object-fit:cover;object-position:center 50%;
+    -webkit-mask-image:linear-gradient(to bottom, transparent 0%, #000 4%, #000 100%);
+            mask-image:linear-gradient(to bottom, transparent 0%, #000 4%, #000 100%);}
+  .cv .footer{position:absolute;left:0;right:0;bottom:30px;height:62px;
+    background:linear-gradient(to bottom,#5c1024,#3e0c18);border-top:1px solid rgba(220,185,120,.28);
+    display:flex;align-items:center;justify-content:center;gap:46px;font-size:24px;color:#e3d4bd;}
+  .cv .fitem{display:flex;align-items:center;gap:11px;white-space:nowrap;flex-shrink:0;}
+  .cv .fitem .lab{font-weight:700;color:var(--gold);}
+  .cv .fitem .div{color:rgba(220,185,120,.35);}
+  .cv .fitem .val{font-weight:400;color:#e3d4bd;}
+</style>
+</head>
+<body>
+  <div id="fit">
+    <div id="spread" data-screen-label="외지">
+      <div class="blob a"></div><div class="blob b"></div>
+
+      <!-- LEFT: 프로그램 + 지휘 + 협연 -->
+      <div class="panel" data-screen-label="외지-프로그램·지휘·협연">
+        <div class="section">
+          <div class="phead"><span class="ko">프로그램</span><span class="en">Program</span></div>
+          <div class="rule"></div>
+          <div class="prog">
+            <div class="ppart">
+              <div class="tag"><span class="num">1부</span><span class="en">Part I</span></div>
+              <div class="work">
+                <div class="composer">L. v. Beethoven</div>
+                <div class="titlerow"><span class="title">Symphony No.5 in C minor, Op.67</span><span class="ko">교향곡 제5번 ‘운명’</span></div>
+                <ul class="mvts">
+                  <li><span class="mi">I.</span>Allegro con brio</li>
+                  <li><span class="mi">II.</span>Andante con moto</li>
+                  <li><span class="mi">III.</span>Scherzo. Allegro</li>
+                  <li><span class="mi">IV.</span>Allegro</li>
+                </ul>
+              </div>
+            </div>
+            <div class="intermission">Intermission</div>
+            <div class="ppart">
+              <div class="tag"><span class="num">2부</span><span class="en">Part II</span></div>
+              <div class="work">
+                <div class="composer">É. Waldteufel</div>
+                <div class="titlerow"><span class="title">Waltz Collection</span><span class="ko">왈츠곡 모음</span></div>
+                <ul class="mvts">
+                  <li><span class="mi">·</span>Les Patineurs (Skaters’ Waltz) Op.183 외</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="phead"><span class="ko">지휘자</span><span class="en">Conductor</span></div>
+          <div class="rule"></div>
+          <div class="biobody">
+            <div class="figure">
+              <img class="pf" src="assets/conductor.png" alt="지휘 한동송">
+              <div class="cap"><div class="role">Conductor</div><div class="nm">한동송</div></div>
+            </div>
+            <div class="bio">
+              <ul>
+                <li>Brooklyn College, The City University of New York (M.M.) 석사</li>
+                <li>경성대학교 예술대학 음악학과 졸업</li>
+                <li>마산시립교향악단 · Brooklyn Orchestra · New York Christian Orchestra 수석</li>
+                <li>창신대학교 외래교수, 부산필하모니아 오케스트라 수석 역임</li>
+                <li>(현) 브니엘예중 오케스트라 지휘, 부산다문화국제학교 출강</li>
+                <li>부산멜로스 오케스트라 악장, 소노 오케스트라 대표</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="phead"><span class="ko">협연자</span><span class="en">Guest Soloist</span></div>
+          <div class="rule"></div>
+          <div class="biobody">
+            <div class="figure">
+              <div class="pf blank">PHOTO</div>
+              <div class="cap"><div class="role">Guest Soloist</div><div class="nm">OOO</div></div>
+            </div>
+            <div class="bio">
+              <div class="tba">협연자는 추후 안내드립니다.<span class="em">Profile to be announced — 확정 후 이 자리에 약력이 들어갑니다.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: 표지 -->
+      <div class="cv" data-screen-label="외지-표지">
+        <div class="blob rose"></div>
+        <div class="blob mauve2"></div>
+        <div class="blob sage"></div>
+        <div class="blob olive"></div>
+        <div class="blob lav"></div>
+
+        <div class="kicker"><span>제</span><span class="num">31</span><span>회 정기연주회</span></div>
+
+        <div class="title">
+          <div class="lead"><b>부산교사오케스트라</b>와 함께 떠나는</div>
+          <div class="main">베토벤과 발트토이펠 음악여행</div>
+        </div>
+
+        <div class="composers">
+          <div class="portrait mendel"><img src="assets/beethoven.png" alt="Ludwig van Beethoven"></div>
+          <div class="portrait tchaik"><img src="assets/waldteufel.png" alt="Émile Waldteufel"></div>
+          <div class="label l-mendel"><div class="nm">Ludwig van Beethoven</div><div class="yr">1770 – 1827</div></div>
+          <div class="label l-tchaik"><div class="nm">Émile Waldteufel</div><div class="yr">1837 – 1915</div></div>
+        </div>
+
+        <div class="info">
+          <div class="date">
+            <span class="yr">2026.</span>
+            <span class="big">12.</span>
+            <span class="big">1.</span>
+            <span class="day">[화]</span>
+            <span class="big">18:30</span>
+          </div>
+          <div class="venue">을숙도문화회관 대공연장</div>
+        </div>
+
+        <div class="orchestra"><img src="assets/orchestra.png" alt="부산교사오케스트라"></div>
+
+        <div class="footer">
+          <div class="fitem"><span class="lab">주최</span><span class="div">|</span><span class="val">부산교사오케스트라</span></div>
+          <div class="fitem"><span class="lab">주관</span><span class="div">|</span><span class="val">부산광역시교육청</span></div>
+          <div class="fitem"><span class="lab">티켓</span><span class="div">|</span><span class="val">전석무료</span></div>
+        </div>
+      </div>
+
+      <div class="fold"></div>
+    </div>
+  </div>
+<script>
+  function fit(){
+    const s=Math.min(window.innerWidth/2624, window.innerHeight/1795);
+    document.getElementById('fit').style.transform='scale('+s+')';
+  }
+  window.addEventListener('resize',fit); fit();
+</script>
+</body>
+</html>

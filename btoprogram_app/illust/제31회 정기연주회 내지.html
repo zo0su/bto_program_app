@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제31회 정기연주회 — 내지 (축사·연혁 | 초대·출연자)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#321820;
+    --ink-soft:#4a2830;
+    --ink-dim:#8a5a58;
+    --gold:#9a6a1e;
+    --gold-deep:#a87b2a;
+    --frame:#8B0029;
+    --paper-1:#fffaf6;
+    --paper-2:#fbf3ec;
+    --paper-3:#f4e6dc;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;background:#3a1020;overflow:hidden;}
+  body{display:flex;align-items:center;justify-content:center;font-family:"Gowun Batang",serif;}
+  #fit{transform-origin:center center;}
+  #spread{
+    width:2624px;height:1795px;position:relative;overflow:hidden;
+    background:var(--frame);
+    color:var(--ink);
+  }
+  /* 사면 약 1cm(69px) 버건디 테두리 + 안쪽 옅은 종이 패널 */
+  #spread::before{content:"";position:absolute;inset:69px;z-index:1;
+    background:radial-gradient(120% 90% at 50% 26%, var(--paper-1) 0%, var(--paper-2) 60%, var(--paper-3) 100%);
+    box-shadow:0 0 0 1.5px rgba(168,123,42,.45), 0 0 36px rgba(0,0,0,.16);}
+  .fold{position:absolute;top:69px;bottom:69px;left:1312px;width:2px;transform:translateX(-1px);z-index:6;
+    background:linear-gradient(to bottom, transparent, rgba(90,37,49,.22) 12%, rgba(90,37,49,.22) 88%, transparent);}
+  .fold::before{content:"";position:absolute;top:69px;bottom:69px;left:-46px;width:92px;
+    background:radial-gradient(closest-side, rgba(90,37,49,.10), transparent);}
+
+  .blob{position:absolute;border-radius:50%;display:none;}
+  .blob.a{width:150px;height:150px;background:#e07080;opacity:.28;top:-40px;left:300px;}
+  .blob.b{width:96px;height:96px;background:#c4a15a;opacity:.26;top:40px;right:340px;}
+
+  .panel{position:absolute;top:0;height:1795px;width:1312px;padding:139px 92px;display:flex;flex-direction:column;z-index:2;}
+  .panel.left{left:0;}
+  .panel.right{left:1312px;}
+
+  .phead{display:flex;align-items:baseline;gap:14px;flex-wrap:nowrap;white-space:nowrap;flex-shrink:0;}
+  .phead .ko{font-size:33px;font-weight:700;color:var(--gold);letter-spacing:1px;white-space:nowrap;flex-shrink:0;}
+  .phead .en{font-family:"Cormorant Garamond",serif;font-size:16px;letter-spacing:4px;color:var(--ink-dim);text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+  .rule{height:1.4px;background:var(--gold-deep);margin:10px 0 0;flex-shrink:0;}
+
+  .section + .section{margin-top:21px;padding-top:21px;border-top:1px solid rgba(90,37,49,.16);}
+
+  /* greeting essays (축사·초대의 글 — 왼쪽 컬럼) */
+  .grow{display:flex;gap:24px;align-items:flex-start;margin-top:12px;}
+  .gfig{width:138px;flex-shrink:0;}
+  .gfig img{width:138px;height:174px;object-fit:cover;object-position:center top;display:block;
+    border:1px solid rgba(90,37,49,.35);box-shadow:0 8px 18px rgba(0,0,0,.16);}
+  .gfig .cap{margin-top:8px;text-align:center;line-height:1.25;width:164px;margin-left:-13px;}
+  .gfig .cap .role{font-size:14px;color:var(--ink-dim);white-space:nowrap;}
+  .gfig .cap .nm{font-size:19px;font-weight:700;color:var(--ink);letter-spacing:.5px;}
+  .gtext p{font-size:16.5px;line-height:1.5;color:var(--ink);text-align:justify;text-wrap:pretty;word-break:keep-all;}
+
+  /* history (left, 제1~30회 정기연주회) */
+  .hist{flex:1;display:flex;flex-direction:column;min-height:0;}
+  table.h{width:100%;border-collapse:collapse;margin-top:10px;table-layout:fixed;}
+  table.h col.c-name{width:34%;}
+  table.h col.c-date{width:21%;}
+  table.h col.c-venue{width:36%;}
+  table.h col.c-cond{width:9%;}
+  table.h th{font-size:14px;font-weight:700;color:var(--gold);text-align:center;padding:0 6px 7px;
+    border-bottom:1.4px solid var(--gold-deep);white-space:nowrap;letter-spacing:.4px;}
+  table.h td{font-size:14px;line-height:1.1;color:var(--ink-soft);text-align:center;padding:4.5px 6px;
+    border-bottom:1px solid rgba(90,37,49,.10);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  table.h td.t-date{font-family:"Cormorant Garamond",serif;font-size:13.5px;color:var(--gold);letter-spacing:.2px;}
+  table.h td.t-cond{color:var(--ink-dim);text-align:center;}
+  table.h tbody tr:last-child td{border-bottom:none;}
+
+  /* performers — 단일열·악기명+이름 인라인 (오른쪽 전체) */
+  .perf{flex:1;display:flex;flex-direction:column;min-height:0;}
+  .pgrid{margin-top:26px;}
+  .grouptitle{display:flex;align-items:baseline;gap:10px;font-size:26px;font-weight:700;color:var(--gold);margin:0 0 18px;padding-bottom:8px;border-bottom:1.4px solid var(--gold-deep);white-space:nowrap;}
+  .grouptitle.next{margin-top:46px;}
+  .grouptitle .en{font-family:"Cormorant Garamond",serif;font-size:16px;letter-spacing:1.5px;color:var(--ink-dim);font-weight:400;text-transform:uppercase;}
+  .part{margin-bottom:6px;line-height:2.05;padding-left:52px;text-indent:-52px;}
+  .part .lab{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:26px;color:var(--gold);letter-spacing:.3px;}
+  .part .lab.empty{color:var(--ink-dim);}
+  .part .names{font-family:"Noto Sans KR",sans-serif;font-size:22px;font-weight:400;line-height:2.1;color:var(--ink);word-break:keep-all;text-wrap:pretty;}
+  .part .names.none{color:rgba(122,85,80,.55);}
+</style>
+</head>
+<body>
+  <div id="fit">
+    <div id="spread" data-screen-label="내지">
+      <div class="blob a"></div><div class="blob b"></div>
+
+      <!-- LEFT: 축사 + 초대의 글 + 연혁 -->
+      <div class="panel left" data-screen-label="내지-축사·초대·연혁">
+        <div class="section">
+          <div class="phead"><span class="ko">축사</span><span class="en">Congratulatory Address</span></div>
+          <div class="rule"></div>
+          <div class="grow">
+            <div class="gfig">
+              <img src="assets/gyoyukgam.png" alt="부산광역시 교육감 김석준">
+              <div class="cap"><div class="role">부산광역시 교육감</div><div class="nm">김석준</div></div>
+            </div>
+            <div class="gtext"><p>초겨울의 길목, 을숙도의 낙조가 아름다운 문화회관에서 「제31회 부산교사오케스트라 정기연주회」 개최를 진심으로 축하드립니다. 교원의 예술적 창작 활동을 지원하고 이번 연주회를 위해 노력해 주신 관계자 여러분과 운영진께 감사드리며, 오늘 무대의 주인공인 단원 여러분께 뜨거운 격려의 박수를 보냅니다. 바쁜 교육 활동 중에도 악기를 잡고 서로의 소리에 귀 기울이며 하모니를 만들어낸 선생님들의 헌신에 경의를 표합니다. 갈고닦은 음악적 소양을 수업에 녹여내며 학생들의 성장을 이끄시는 선생님들이야말로 부산 교육의 진정한 예술가이십니다. 우리 교육청은 앞으로도 교원의 예술 활동과 전문성 신장을 아낌없이 지원하겠습니다. 감사합니다.</p></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="phead"><span class="ko">초대의 글</span><span class="en">Invitation</span></div>
+          <div class="rule"></div>
+          <div class="grow">
+            <div class="gfig">
+              <img src="assets/danjang.png" alt="부산교사오케스트라 단장 조영수">
+              <div class="cap"><div class="role">부산교사오케스트라 단장</div><div class="nm">조영수</div></div>
+            </div>
+            <div class="gtext"><p>올해는 연습장과 공연장이 바뀌는 예기치 못한 변화와 마주했습니다. 익숙함을 뒤로하고 낯선 환경에 적응해야 했던 시간들, 그 고단함 속에서도 단원들은 음악을 향한 열정 하나로 연습실의 불을 밝혔습니다. 한 분 한 분의 노고와 헌신이 모여 마침내 이 무대를 완성했습니다. 이번 공연에서는 어둠을 뚫고 승리로 나아가는 베토벤의 ‘운명’ 전곡을 연주합니다. 네 개의 강렬한 음이 상징하는 것은 단순한 비극이 아닌, 고난을 극복하려는 인간의 의지입니다. 아울러 발트토이펠의 ‘스케이팅 왈츠’는 은반 위를 활주하는 사람들의 우아하고 경쾌한 모습을 그려냅니다. 일상의 무게를 잠시 내려놓고 음악의 즐거움에 몸을 맡겨 보시길 바랍니다. 감사합니다.</p></div>
+          </div>
+        </div>
+
+        <div class="section hist">
+          <div class="phead"><span class="ko">연혁</span><span class="en">History</span></div>
+          <div class="rule"></div>
+          <table class="h">
+            <colgroup><col class="c-name"><col class="c-date"><col class="c-venue"><col class="c-cond"></colgroup>
+            <thead><tr><th>연주회명</th><th>일자</th><th>공연장소</th><th>지휘</th></tr></thead>
+            <tbody>
+              <tr><td class="t-name">부산교사오케스트라 창단 연주회</td><td class="t-date">1995. 12.</td><td>부산시민회관 대극장</td><td class="t-cond">배일환</td></tr>
+              <tr><td class="t-name">제1회 정기연주회</td><td class="t-date">1996. 11. 20.</td><td>부산문화회관 대극장</td><td class="t-cond">배일환</td></tr>
+              <tr><td class="t-name">제2회 정기연주회</td><td class="t-date">1997. 11. 25.</td><td>부산문화회관 대극장</td><td class="t-cond">배일환</td></tr>
+              <tr><td class="t-name">제3회 정기연주회</td><td class="t-date">1999. 01. 19.</td><td>부산문화회관 대극장</td><td class="t-cond">배일환</td></tr>
+              <tr><td class="t-name">제4회 정기연주회</td><td class="t-date">2000. 01. 11.</td><td>부산문화회관 대극장</td><td class="t-cond">송고봉</td></tr>
+              <tr><td class="t-name">제5회 정기연주회</td><td class="t-date">2000. 11. 17.</td><td>부산문화회관 대극장</td><td class="t-cond">송고봉</td></tr>
+              <tr><td class="t-name">제6회 정기연주회</td><td class="t-date">2001. 11. 09.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">배일환</td></tr>
+              <tr><td class="t-name">제7회 정기연주회</td><td class="t-date">2002. 11. 09.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">배일환</td></tr>
+              <tr><td class="t-name">제8회 정기연주회</td><td class="t-date">2003. 11. 07.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제9회 정기연주회</td><td class="t-date">2004. 11. 29.</td><td>부산금정문화회관 대극장</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제10회 정기연주회</td><td class="t-date">2005. 12. 23.</td><td>부산금정문화회관 대극장</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제11회 정기연주회</td><td class="t-date">2006. 11. 29.</td><td>부산금정문화회관 대극장</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제12회 정기연주회</td><td class="t-date">2007. 11. 07.</td><td>부산금정문화회관 대극장</td><td class="t-cond">윤상운</td></tr>
+              <tr><td class="t-name">제13회 정기연주회</td><td class="t-date">2008. 11. 27.</td><td>부산금정문화회관 대극장</td><td class="t-cond">윤상운</td></tr>
+              <tr><td class="t-name">제14회 정기연주회</td><td class="t-date">2009. 11. 25.</td><td>부산금정문화회관 대극장</td><td class="t-cond">윤상운</td></tr>
+              <tr><td class="t-name">제15회 정기연주회</td><td class="t-date">2010. 10. 27.</td><td>부산금정문화회관 대극장</td><td class="t-cond">김진연</td></tr>
+              <tr><td class="t-name">제16회 정기연주회</td><td class="t-date">2011. 10. 01.</td><td>부산금정문화회관 대극장</td><td class="t-cond">김진연</td></tr>
+              <tr><td class="t-name">제17회 정기연주회</td><td class="t-date">2012. 11. 14.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">안종배</td></tr>
+              <tr><td class="t-name">제18회 정기연주회</td><td class="t-date">2013. 11. 13.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제19회 정기연주회</td><td class="t-date">2014. 11. 15.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제20회 정기연주회</td><td class="t-date">2015. 11. 19.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제21회 정기연주회</td><td class="t-date">2016. 11. 25.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제22회 정기연주회</td><td class="t-date">2017. 12. 16.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제23회 정기연주회</td><td class="t-date">2018. 11. 22.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제24회 정기연주회</td><td class="t-date">2019. 11. 22.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">박종회</td></tr>
+              <tr><td class="t-name">제25회 정기연주회</td><td class="t-date">2020. 12. 23.</td><td>부산학생교육문화회관 다목적홀</td><td class="t-cond">한동송</td></tr>
+              <tr><td class="t-name">제26회 정기연주회</td><td class="t-date">2021. 11. 09.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">한동송</td></tr>
+              <tr><td class="t-name">제27회 정기연주회</td><td class="t-date">2022. 11. 12.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">한동송</td></tr>
+              <tr><td class="t-name">제28회 정기연주회</td><td class="t-date">2023. 11. 25.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">한동송</td></tr>
+              <tr><td class="t-name">제29회 정기연주회</td><td class="t-date">2024. 11. 23.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">한동송</td></tr>
+              <tr><td class="t-name">제30회 정기연주회</td><td class="t-date">2025. 11. 19.</td><td>부산학생교육문화회관 대강당</td><td class="t-cond">한동송</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- RIGHT: 출연자 소개 -->
+      <div class="panel right" data-screen-label="내지-출연자">
+        <div class="section perf">
+          <div class="phead"><span class="ko">출연자 소개</span><span class="en">Performers</span></div>
+          <div class="rule"></div>
+          <div class="pgrid">
+            <div class="grouptitle">현악기 <span class="en">Strings</span></div>
+            <div class="part"><span class="lab">Violin 1 </span><span class="names">안유진(악장, 부산기계공고), 고은별(총무, 미남초), 권금옥(퇴직교원), 이경민(기획, 동래고), 신서희(학장초), 신승현(모라초), 이신화(남문초), 권주연(트레이너)</span></div>
+            <div class="part"><span class="lab">Violin 2 </span><span class="names">이예리(파트장, 개금초), 김원희(달북초), 김지민(동원초), 서지애(부산기계공고), 심윤정(미남초), 양유림(온샘초), 왕혜정(대동중), 윤근혜(망정초), 이가현(예원초), 이유진(사직여중), 이정아(백양초), 조경래(퇴직교원), 조미선(퇴직교원), 최가연(신재초)</span></div>
+            <div class="part"><span class="lab">Viola </span><span class="names">김혜정(파트장, 부산전자공고), 이수진(한국조형예술고)</span></div>
+            <div class="part"><span class="lab">Cello </span><span class="names">오재익(파트장, 부흥고), 강주연(구평초), 김규리(부전초), 김소영(부암초), 김원임(개화초), 유경희(배정고), 강태이(트레이너)</span></div>
+            <div class="part"><span class="lab empty">Contrabass </span><span class="names none">—</span></div>
+
+            <div class="grouptitle next">목관 · 금관악기 <span class="en">Winds &amp; Brass</span></div>
+            <div class="part"><span class="lab">Flute </span><span class="names">남연수(파트장, 부산솔빛학교·교육청 겸임), 강언화(동래고), 김미향(퇴직교원), 문성민(퇴직교원), 박미선(부산전자공고), 박민정(괴정초), 심희수(해원초), 여지영(분포고), 정동원(부민초), 정아인(학장초), 정진희(경남여고), 최아연(백산초)</span></div>
+            <div class="part"><span class="lab empty">Piccolo </span><span class="names none">—</span></div>
+            <div class="part"><span class="lab">Oboe </span><span class="names">정혜리</span></div>
+            <div class="part"><span class="lab empty">Bassoon </span><span class="names none">—</span></div>
+            <div class="part"><span class="lab">Clarinet </span><span class="names">양세영(파트장, 하단초), 김동수(가야초), 김현민(부산솔빛학교), 박지영(하단초), 이창호(퇴직교원), 조영수(단장, 금성고), 홍수정(트레이너)</span></div>
+            <div class="part"><span class="lab empty">Horn </span><span class="names none">—</span></div>
+            <div class="part"><span class="lab empty">Trumpet </span><span class="names none">—</span></div>
+            <div class="part"><span class="lab empty">Trombone </span><span class="names none">—</span></div>
+
+            <div class="grouptitle next">타악기 <span class="en">Percussion</span></div>
+            <div class="part"><span class="lab">Timpani </span><span class="names">하광오(동아고)</span></div>
+            <div class="part"><span class="lab empty">Percussion </span><span class="names none">—</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fold"></div>
+    </div>
+  </div>
+<script>
+  function fit(){
+    const s=Math.min(window.innerWidth/2624, window.innerHeight/1795);
+    document.getElementById('fit').style.transform='scale('+s+')';
+  }
+  window.addEventListener('resize',fit); fit();
+</script>
+</body>
+</html>
