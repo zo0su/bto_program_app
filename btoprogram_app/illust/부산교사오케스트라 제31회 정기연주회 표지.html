@@ -9,29 +9,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#f4ecdb;
-    --ink-soft:#d6c6ad;
-    --gold:#dcb978;
-    --gold-deep:#c79a4c;
+    --ink:#fff8f0;
+    --ink-soft:#f6e6d4;
+    --gold:#f0d08a;
+    --gold-deep:#d4ae62;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{height:100%;background:#3a1020;overflow:hidden;}
+  html,body{height:100%;background:#140810;overflow:hidden;}
   body{display:flex;align-items:center;justify-content:center;font-family:"Gowun Batang",serif;}
   #fit{transform-origin:center center;}
   #poster{
     width:1280px;height:1795px;position:relative;overflow:hidden;
     background:
-      radial-gradient(135% 75% at 50% 26%, #b01c38 0%, #8B0029 42%, #641028 74%, #4a0e1e 100%);
+      radial-gradient(135% 75% at 50% 26%, #7c3144 0%, #5e2434 42%, #3d1826 74%, #2a121c 100%);
     color:var(--ink);
   }
 
   /* ---------- decorative circles ---------- */
   .blob{position:absolute;border-radius:50%;}
-  .blob.rose{width:170px;height:170px;background:#e07080;top:78px;right:300px;opacity:.72;}
-  .blob.mauve2{width:200px;height:200px;background:#6e2040;top:120px;right:150px;opacity:.4;}
-  .blob.sage{width:150px;height:150px;background:#c4a15a;top:640px;left:120px;opacity:.45;}
-  .blob.lav{width:108px;height:108px;background:#f0c9b4;top:760px;left:70px;opacity:.7;}
-  .blob.olive{width:78px;height:78px;background:#e2c07a;top:600px;left:250px;opacity:.55;}
+  .blob.rose{width:170px;height:170px;background:#7e3a40;top:78px;right:300px;opacity:.9;}
+  .blob.mauve2{width:200px;height:200px;background:#5d4350;top:120px;right:150px;opacity:.6;}
+  .blob.sage{width:150px;height:150px;background:#6d5a38;top:640px;left:120px;opacity:.7;}
+  .blob.lav{width:108px;height:108px;background:#b89a82;top:760px;left:70px;opacity:.8;}
+  .blob.olive{width:78px;height:78px;background:#806640;top:600px;left:250px;opacity:.6;}
 
   /* ---------- header ---------- */
   .kicker{position:absolute;top:74px;left:96px;font-weight:600;font-size:42px;letter-spacing:-.5px;color:var(--ink);display:flex;align-items:baseline;gap:2px;white-space:nowrap;}
@@ -39,11 +39,11 @@
 
   /* ---------- title ---------- */
   .title{position:absolute;top:216px;left:0;right:0;text-align:center;}
-  .title .lead{font-size:46px;font-weight:400;color:var(--ink);letter-spacing:-1px;}
+  .title .lead{font-size:46px;font-weight:400;color:var(--ink);letter-spacing:0;}
   .title .lead b{font-weight:700;font-size:56px;}
   .title .main{
     margin-top:22px;font-size:86px;font-weight:700;letter-spacing:-1px;line-height:1.06;
-    background:linear-gradient(96deg,#efd9a4 0%,#dcb978 46%,#f3e6c2 100%);
+    background:linear-gradient(96deg,#fff1c8 0%,#f0d08a 46%,#fff6dd 100%);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   }
 
@@ -55,7 +55,7 @@
   .portrait.tchaik{width:392px;height:474px;left:706px;top:56px;}
   .label{position:absolute;font-family:"Cormorant Garamond",serif;color:#f1e7d4;text-align:center;line-height:1.2;white-space:nowrap;}
   .label .nm{font-size:33px;font-weight:600;letter-spacing:.5px;}
-  .label .yr{font-size:26px;font-weight:400;letter-spacing:1px;color:#cbb89c;}
+  .label .yr{font-size:26px;font-weight:500;letter-spacing:1px;color:#f0e2d0;}
   .label.l-mendel{left:120px;top:540px;width:488px;}
   .label.l-tchaik{left:658px;top:528px;width:488px;}
 
@@ -65,7 +65,7 @@
   .date .yr{font-size:54px;font-weight:500;}
   .date .big{color:var(--gold);font-weight:700;font-size:70px;}
   .date .day{font-family:"Gowun Batang",serif;font-size:36px;font-weight:400;color:var(--ink-soft);}
-  .venue{margin-top:16px;font-size:50px;font-weight:700;letter-spacing:-1px;color:var(--ink);}
+  .venue{margin-top:16px;font-size:50px;font-weight:700;letter-spacing:0;color:var(--ink);}
   .venue-en{margin-top:8px;font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:3px;color:#c2ab8a;text-transform:uppercase;}
 
   /* ---------- orchestra photo ---------- */
@@ -77,14 +77,14 @@
 
   /* ---------- footer ---------- */
   .footer{position:absolute;left:0;right:0;bottom:0;height:62px;
-    background:linear-gradient(to bottom,#5c1024,#3e0c18);border-top:1px solid rgba(220,185,120,.28);
-    display:flex;align-items:center;justify-content:center;gap:46px;
-    font-size:24px;color:#e3d4bd;}
+    background:linear-gradient(to bottom,#351820,#28141c);border-top:1px solid rgba(240,208,138,.32);
+    display:flex;align-items:center;justify-content:center;gap:28px;
+    font-size:22px;color:#f6ead8;}
   .fitem{display:flex;align-items:center;gap:11px;white-space:nowrap;flex-shrink:0;}
   .fitem .lab{font-weight:700;color:var(--gold);}
   .fitem .div{color:rgba(220,185,120,.35);}
   .fitem img{height:30px;width:auto;display:block;}
-  .fitem .val{font-weight:400;color:#e3d4bd;}
+  .fitem .val{font-weight:400;color:#f6ead8;}
 </style>
 </head>
 <body>
@@ -133,6 +133,7 @@
       <div class="footer">
         <div class="fitem"><span class="lab">주최</span><span class="div">|</span><span class="val">부산교사오케스트라</span></div>
         <div class="fitem"><span class="lab">주관</span><span class="div">|</span><span class="val">부산광역시교육청</span></div>
+        <div class="fitem"><span class="lab">후원</span><span class="div">|</span><span class="val">부산광역시학생교육문화회관</span></div>
         <div class="fitem"><span class="lab">티켓</span><span class="div">|</span><span class="val">전석무료</span></div>
       </div>
     </div>
